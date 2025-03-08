@@ -9,8 +9,8 @@ import java.util.Optional;
 import java.util.UUID;
 
 public interface ICelebrityRepository extends JpaRepository<Celebrity, UUID> {
-    Optional<Celebrity> findByName(String name);
+    List<Celebrity> findByName(String name);
     List<Celebrity> findByProfession(String profession);
-    List<Celebrity> findByNet_worth(double net_worth);
-    List<Celebrity> findBySuspicious_activity(boolean suspicious_activity);
+    List<Celebrity> findByNetWorth(double netWorth);
+    List<Celebrity> findBySuspiciousActivity(boolean suspiciousActivity);
 }

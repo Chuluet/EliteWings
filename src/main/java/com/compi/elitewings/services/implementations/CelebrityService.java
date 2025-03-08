@@ -36,7 +36,7 @@ public class CelebrityService implements IServiceCelebrity {
     }
 
     @Override
-    public Optional<Celebrity> getCelebrityByName(String name) {
+    public List<Celebrity> getCelebrityByName(String name) {
         return this.celebrityRepository.findByName(name);
     }
 
@@ -47,11 +47,11 @@ public class CelebrityService implements IServiceCelebrity {
 
     @Override
     public List<Celebrity> getCelebrityByWorth(double worth) {
-        return this.celebrityRepository.findByNet_worth(worth);
+        return this.celebrityRepository.findByNetWorth(worth);
     }
 
     @Override
     public List<Celebrity> getCelebrityBySuspiciousActivity(boolean suspiciousActivity) {
-        return this.celebrityRepository.findBySuspicious_activity(suspiciousActivity);
+        return this.celebrityRepository.findBySuspiciousActivity(suspiciousActivity);
     }
 }

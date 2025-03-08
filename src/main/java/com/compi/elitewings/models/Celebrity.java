@@ -28,7 +28,7 @@ public class Celebrity {
 
     private String profession;
 
-    private double net_worth;
+    private double netWorth;
 
-    private boolean suspicious_activity;
+    private boolean suspiciousActivity;
 }
