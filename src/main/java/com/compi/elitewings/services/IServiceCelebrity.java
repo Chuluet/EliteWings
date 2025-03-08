@@ -13,7 +13,7 @@ public interface IServiceCelebrity {
 
     public Optional<Celebrity> getCelebrityById(UUID id);
 
-    public Optional<Celebrity> getCelebrityByName(String name);
+    public List<Celebrity> getCelebrityByName(String name);
 
     public List<Celebrity> getCelebrityByProfession(String profession);
 
