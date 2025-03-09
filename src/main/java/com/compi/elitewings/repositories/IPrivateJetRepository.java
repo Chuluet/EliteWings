@@ -7,14 +7,15 @@ import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.sql.Timestamp;
 import java.util.List;
+import java.util.Optional;
 import java.util.UUID;
 
 public interface IPrivateJetRepository extends JpaRepository<PrivateJet, UUID> {
 
-    List<Flight> findByOwner_Id(UUID jet_Id);
+    Optional<PrivateJet> findByPilotId(UUID jet_Id);
 
-    List<Flight> findByModel(String model);
+    List<PrivateJet> findByModel(String model);
 
-    List<Flight> findByCapacity(int capacity);
+    List<PrivateJet> findByCapacity(int capacity);
 
 }

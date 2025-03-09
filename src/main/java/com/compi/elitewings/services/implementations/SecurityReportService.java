@@ -47,7 +47,7 @@ public class SecurityReportService implements IServiceSecurityReport {
     }
 
     @Override
-    public List<SecurityReport> getSecurityReportByResolved(boolean resolved) {
-        return this.securityReportRepository.findByResolved(resolved);
+    public List<SecurityReport> getSecurityReportByResolved(boolean isResolved) {
+        return this.securityReportRepository.findByisResolved(isResolved);
     }
 }

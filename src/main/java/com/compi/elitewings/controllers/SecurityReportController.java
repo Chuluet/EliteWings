@@ -9,7 +9,7 @@ import java.util.List;
 import java.util.UUID;
 
 @RestController
-@RequestMapping("/SecurityReport")
+@RequestMapping("/securityReport")
 public class SecurityReportController {
     private final IServiceSecurityReport serviceSecurityReport;
 
@@ -45,8 +45,8 @@ public class SecurityReportController {
         return this.serviceSecurityReport.getSecurityReportByReportedBy(nombre);
     }
 
-    @GetMapping("/buscarResueltos/{resuelto}")
-    public List<SecurityReport> buscarResuelto(@PathVariable boolean resuelto) {
-        return this.serviceSecurityReport.getSecurityReportByResolved(resuelto);
+    @GetMapping("/buscarResueltos/{isResolved}")
+    public List<SecurityReport> buscarResuelto(@PathVariable boolean isResolved) {
+        return this.serviceSecurityReport.getSecurityReportByResolved(isResolved);
     }
 }
