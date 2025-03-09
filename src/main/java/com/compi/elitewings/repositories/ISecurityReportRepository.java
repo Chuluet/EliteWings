@@ -13,5 +13,5 @@ public interface ISecurityReportRepository extends JpaRepository<SecurityReport,
 
     List<SecurityReport> findByReportedBy(String reportedBy);
 
-    List<SecurityReport> findByResolved(boolean resolved);
+    List<SecurityReport> findByisResolved(boolean isResolved);
 }

@@ -1,6 +1,7 @@
 package com.compi.elitewings.models;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -18,7 +19,6 @@ import java.util.UUID;
 @Entity
 @Table(name = "celebrities")
 public class Celebrity {
-    @JsonIgnore
     @Id
     @GeneratedValue(strategy =
             GenerationType.IDENTITY)

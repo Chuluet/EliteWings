@@ -1,8 +1,7 @@
 package com.compi.elitewings.models;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -18,8 +17,10 @@ import java.util.UUID;
 @Table(name = "PrivateJets")
 public class PrivateJet {
     @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    @JsonProperty("id")
     private UUID id;
     private String model;
     private int capacity;
-    private UUID pilot_id;
+    private UUID pilotId;
 }

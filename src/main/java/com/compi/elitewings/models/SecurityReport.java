@@ -1,8 +1,7 @@
 package com.compi.elitewings.models;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -18,6 +17,8 @@ import java.util.UUID;
 @Table(name = "SecurityReports")
 public class SecurityReport {
     @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    @JsonProperty("id")
     private UUID id;
     private UUID flightId;
     private String reportedBy;

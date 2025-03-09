@@ -19,6 +19,8 @@ import java.util.UUID;
 
 public class Airport {
     @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    @JsonProperty("id")
     private UUID id;
     private String name;
     private String location;
