@@ -38,11 +38,16 @@ public class SecurityReportService implements IServiceSecurityReport {
 
     @Override
     public Optional<SecurityReport> getSecurityReportByFlightId(UUID flightId) {
-        return this.securityReportRepository.findByFlight_id(flightId);
+        return this.securityReportRepository.findByFlightId(flightId);
     }
 
     @Override
-    public List<SecurityReport> getSecurityReportByReportedBy(String reported_by) {
-        return this.securityReportRepository.findByReported_by(reported_by);
+    public List<SecurityReport> getSecurityReportByReportedBy(String reportedBy) {
+        return this.securityReportRepository.findByReportedBy(reportedBy);
+    }
+
+    @Override
+    public List<SecurityReport> getSecurityReportByResolved(boolean resolved) {
+        return this.securityReportRepository.findByResolved(resolved);
     }
 }

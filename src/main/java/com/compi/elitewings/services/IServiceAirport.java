@@ -18,5 +18,6 @@ public interface IServiceAirport {
     public List<Airport> getAirportByCapacity(int capacity);
 
     public Optional<Airport> getAirportByOwners(String owners);
+
     public List<Airport> getAirportByLocation(String location);
 }

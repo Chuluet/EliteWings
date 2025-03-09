@@ -8,9 +8,15 @@ import java.util.UUID;
 
 public interface IServiceSecurityReport {
     public List<SecurityReport> getSecurityReport();
+
     public void addSecurityReport(SecurityReport securityReport);
+
     public Optional<SecurityReport> getSecurityReportById(UUID id);
+
     public Optional<SecurityReport> getSecurityReportByFlightId(UUID flightId);
-    public List<SecurityReport> getSecurityReportByReportedBy(String reported_by);
+
+    public List<SecurityReport> getSecurityReportByReportedBy(String reportedBy);
+
+    public List<SecurityReport> getSecurityReportByResolved(boolean resolved);
 
 }

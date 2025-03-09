@@ -12,7 +12,9 @@ import java.util.UUID;
 public interface IPrivateJetRepository extends JpaRepository<PrivateJet, UUID> {
 
     List<Flight> findByOwner_Id(UUID jet_Id);
+
     List<Flight> findByModel(String model);
+
     List<Flight> findByCapacity(int capacity);
 
 }
