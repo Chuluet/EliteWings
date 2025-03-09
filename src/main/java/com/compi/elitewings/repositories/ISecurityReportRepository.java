@@ -9,6 +9,9 @@ import java.util.Optional;
 import java.util.UUID;
 
 public interface ISecurityReportRepository extends JpaRepository<SecurityReport, UUID> {
-    Optional<SecurityReport> findByFlight_id(UUID flightId);
-    List<SecurityReport> findByReported_by(String reported_by);
+    Optional<SecurityReport> findByFlightId(UUID flightId);
+
+    List<SecurityReport> findByReportedBy(String reportedBy);
+
+    List<SecurityReport> findByResolved(boolean resolved);
 }

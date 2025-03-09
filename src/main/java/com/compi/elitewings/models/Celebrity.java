@@ -16,7 +16,7 @@ import java.util.UUID;
 @NoArgsConstructor
 @Builder
 @Entity
-@Table(name="celebrities")
+@Table(name = "celebrities")
 public class Celebrity {
     @JsonIgnore
     @Id

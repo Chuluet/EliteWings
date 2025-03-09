@@ -10,11 +10,17 @@ import java.util.UUID;
 
 
 public interface IFlightRepository extends JpaRepository<Flight, UUID> {
-    List<Flight> findByCelebrity_Id(UUID celebrity_Id);
-    List<Flight> findByJet_Id(UUID jet_Id);
-    List<Flight> findByDeparture_airPort(String departure_airPort);
-    List<Flight> findByArrival_airPort(String arrival_airPort);
-    List<Flight> findByDeparture_time(Timestamp departure_time);
-    List<Flight> findByArrival_time(Timestamp arrival_time);
+    List<Flight> findByCelebrityId(UUID celebrityId);
+
+    List<Flight> findByJetId(UUID jetId);
+
+    List<Flight> findByDepartureAirPort(String departureAirPort);
+
+    List<Flight> findByArrivalAirPort(String arrivalAirPort);
+
+    List<Flight> findByDepartureTime(Timestamp departureTime);
+
+    List<Flight> findByArrivalTime(Timestamp arrivalTime);
+
     List<Flight> findByPurpose(String purpose);
 }

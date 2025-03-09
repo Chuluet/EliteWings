@@ -15,12 +15,12 @@ import java.util.UUID;
 @NoArgsConstructor
 @Builder
 @Entity
-@Table(name="SecurityReports")
+@Table(name = "SecurityReports")
 public class SecurityReport {
     @Id
     private UUID id;
-    private UUID flight_id;
-    private String reported_by;
+    private UUID flightId;
+    private String reportedBy;
     private String description;
-    private boolean is_resolved;
+    private boolean isResolved;
 }
