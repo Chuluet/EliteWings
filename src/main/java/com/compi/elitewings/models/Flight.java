@@ -1,9 +1,8 @@
 package com.compi.elitewings.models;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -21,12 +20,14 @@ import java.util.UUID;
 public class Flight {
     @JsonIgnore
     @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    @JsonProperty("id")
     private UUID id;
-    private UUID celebrity_id;
-    private UUID jet_id;
-    private String departure_airPort;
-    private String arrival_airPort;
-    private Timestamp departure_time;
-    private Timestamp arrival_time;
+    private UUID celebrityId;
+    private UUID jetId;
+    private String departureAirPort;
+    private String arrivalAirPort;
+    private Timestamp departureTime;
+    private Timestamp arrivalTime;
     private String purpose;
 }

@@ -17,11 +17,11 @@ import java.util.UUID;
 @NoArgsConstructor
 @Builder
 @Entity
-@Table(name = "celebrities")
+@Table(name = "Celebrities")
 public class Celebrity {
     @Id
-    @GeneratedValue(strategy =
-            GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    @JsonProperty("id")
     private UUID id;
 
     private String name;
