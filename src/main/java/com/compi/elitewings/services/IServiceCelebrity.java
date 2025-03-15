@@ -20,4 +20,8 @@ public interface IServiceCelebrity {
     public List<Celebrity> getCelebrityByWorth(double worth);
 
     public List<Celebrity> getCelebrityBySuspiciousActivity(boolean suspiciousActivity);
+
+    public void deleteCelebrity(UUID id);
+
+    public void updateCelebrity(UUID id, Celebrity celebrity);
 }

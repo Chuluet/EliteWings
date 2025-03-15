@@ -53,4 +53,26 @@ public class AirportService implements IServiceAirport {
     public List<Airport> getAirportByLocation(String location) {
         return this.airportRepository.findByLocation(location);
     }
+
+    @Override
+    public void deleteAirport(UUID id) {
+        this.airportRepository.deleteById(id);
+    }
+
+    @Override
+    public void updateAirport(UUID id, Airport airport) {
+        Optional<Airport> existingAirportOptional = this.airportRepository.findById(id);
+
+        if (existingAirportOptional.isPresent()) {
+            Airport existingAirport = existingAirportOptional.get();
+            existingAirport.setName(airport.getName());
+            existingAirport.setLocation(airport.getLocation());
+            existingAirport.setCapacity(airport.getCapacity());
+            existingAirport.setOwners(airport.getOwners());
+            this.airportRepository.save(existingAirport);
+        } else {
+            throw new RuntimeException("Airport with ID " + id + " not found");
+        }
+    }
+
 }

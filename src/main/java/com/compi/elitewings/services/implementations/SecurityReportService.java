@@ -50,4 +50,25 @@ public class SecurityReportService implements IServiceSecurityReport {
     public List<SecurityReport> getSecurityReportByResolved(boolean isResolved) {
         return this.securityReportRepository.findByisResolved(isResolved);
     }
+
+    @Override
+    public void deleteReport(UUID id) {
+        this.securityReportRepository.deleteById(id);
+    }
+
+    @Override
+    public void updateSecurityReport(UUID id, SecurityReport securityReport) {
+        Optional<SecurityReport> existingSecurityReportOptional = this.securityReportRepository.findById(id);
+
+        if (existingSecurityReportOptional.isPresent()) {
+            SecurityReport existingSecurityReport = existingSecurityReportOptional.get();
+            existingSecurityReport.setReportedBy(securityReport.getReportedBy());
+            existingSecurityReport.setDescription(securityReport.getDescription());
+            existingSecurityReport.setResolved(securityReport.isResolved());
+            existingSecurityReport.setFlightId(securityReport.getFlightId());
+            this.securityReportRepository.save(existingSecurityReport);
+        } else {
+            throw new RuntimeException("Airport with ID " + id + " not found");
+        }
+    }
 }

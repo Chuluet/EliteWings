@@ -1,5 +1,6 @@
 package com.compi.elitewings.controllers;
 
+import com.compi.elitewings.models.Airport;
 import com.compi.elitewings.models.SecurityReport;
 import com.compi.elitewings.services.IServiceSecurityReport;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -48,5 +49,15 @@ public class SecurityReportController {
     @GetMapping("/buscarResueltos/{isResolved}")
     public List<SecurityReport> buscarResuelto(@PathVariable boolean isResolved) {
         return this.serviceSecurityReport.getSecurityReportByResolved(isResolved);
+    }
+    @PutMapping("/update/{id}")
+    public SecurityReport update(@PathVariable UUID id, @RequestBody SecurityReport securityReport) {
+        this.serviceSecurityReport.updateSecurityReport(id, securityReport);
+        return securityReport;
+    }
+
+    @DeleteMapping("/delete/{id}")
+    public void delete(@PathVariable UUID id) {
+        this.serviceSecurityReport.deleteReport(id);
     }
 }

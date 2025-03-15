@@ -31,21 +31,36 @@ public class AirportController {
 
     @GetMapping("/buscarId/{id}")
     public Airport buscar(@PathVariable UUID id) {
-        return this.serviceAirport.getAirportById(id)
-                .orElse(null);
+        return this.serviceAirport.getAirportById(id).orElse(null);
     }
 
     @GetMapping("/buscarLugar/{lugar}")
     public List<Airport> buscarLugar(@PathVariable String lugar) {
         return this.serviceAirport.getAirportByLocation(lugar);
     }
+    @GetMapping("/buscarNombre/{nombre}")
+    public Airport buscarNombre(@PathVariable String nombre) {
+        return this.serviceAirport.getAirportByName(nombre).orElse(null);
+    }
 
     @GetMapping("/buscarCapacidad/{capacidad}")
     public List<Airport> buscarCapacidad(@PathVariable int capacidad) {
         return this.serviceAirport.getAirportByCapacity(capacidad);
     }
+
     @GetMapping("/buscarOwners/{owners}")
     public Airport buscarOwners(@PathVariable String owners) {
         return this.serviceAirport.getAirportByOwners(owners).orElse(null);
+    }
+
+    @PutMapping("/update/{id}")
+    public Airport update(@PathVariable UUID id, @RequestBody Airport airport) {
+        this.serviceAirport.updateAirport(id, airport);
+        return airport;
+    }
+
+    @DeleteMapping("/delete/{id}")
+    public void delete(@PathVariable UUID id) {
+        this.serviceAirport.deleteAirport(id);
     }
 }

@@ -1,6 +1,7 @@
 package com.compi.elitewings.services.implementations;
 
 
+
 import com.compi.elitewings.models.Celebrity;
 import com.compi.elitewings.repositories.ICelebrityRepository;
 import com.compi.elitewings.services.IServiceCelebrity;
@@ -53,5 +54,25 @@ public class CelebrityService implements IServiceCelebrity {
     @Override
     public List<Celebrity> getCelebrityBySuspiciousActivity(boolean suspiciousActivity) {
         return this.celebrityRepository.findBySuspiciousActivity(suspiciousActivity);
+    }
+    @Override
+    public void deleteCelebrity(UUID id) {
+        this.celebrityRepository.deleteById(id);
+    }
+
+    @Override
+    public void updateCelebrity(UUID id, Celebrity celebrity) {
+        Optional<Celebrity> existingCelebrityOptional = this.celebrityRepository.findById(id);
+
+        if (existingCelebrityOptional.isPresent()) {
+            Celebrity existingCelebrity = existingCelebrityOptional.get();
+            existingCelebrity.setName(celebrity.getName());
+            existingCelebrity.setProfession(celebrity.getProfession());
+            existingCelebrity.setNetWorth(celebrity.getNetWorth());
+            existingCelebrity.setSuspiciousActivity(celebrity.isSuspiciousActivity());
+            this.celebrityRepository.save(existingCelebrity);
+        } else {
+            throw new RuntimeException("Airport with ID " + id + " not found");
+        }
     }
 }

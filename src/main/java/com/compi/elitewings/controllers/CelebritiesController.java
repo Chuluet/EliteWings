@@ -44,4 +44,14 @@ public class CelebritiesController {
     public List<Celebrity> buscarSospechosa(@PathVariable boolean sospechosa) {
         return this.serviceCelebrity.getCelebrityBySuspiciousActivity(sospechosa);
     }
+    @PutMapping("/update/{id}")
+    public Celebrity update(@PathVariable UUID id, @RequestBody Celebrity celebrity) {
+        this.serviceCelebrity.updateCelebrity(id, celebrity);
+        return celebrity;
+    }
+
+    @DeleteMapping("/delete/{id}")
+    public void delete(@PathVariable UUID id) {
+        this.serviceCelebrity.deleteCelebrity(id);
+    }
 }

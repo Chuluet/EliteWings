@@ -1,5 +1,6 @@
 package com.compi.elitewings.services;
 
+
 import com.compi.elitewings.models.SecurityReport;
 
 import java.util.List;
@@ -18,5 +19,9 @@ public interface IServiceSecurityReport {
     public List<SecurityReport> getSecurityReportByReportedBy(String reportedBy);
 
     public List<SecurityReport> getSecurityReportByResolved(boolean resolved);
+
+    public void deleteReport(UUID id);
+
+    public void updateSecurityReport(UUID id, SecurityReport securityReport);
 
 }
