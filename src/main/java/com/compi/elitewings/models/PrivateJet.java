@@ -18,7 +18,7 @@ import java.util.UUID;
 public class PrivateJet {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    @JsonProperty("id")
+    @JsonProperty(access = JsonProperty.Access.READ_ONLY)
     private UUID id;
     private String model;
     private int capacity;

@@ -21,7 +21,7 @@ public class Flight {
     @JsonIgnore
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    @JsonProperty("id")
+    @JsonProperty(access = JsonProperty.Access.READ_ONLY)
     private UUID id;
     private UUID celebrityId;
     private UUID jetId;

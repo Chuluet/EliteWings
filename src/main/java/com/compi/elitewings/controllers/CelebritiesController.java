@@ -30,7 +30,7 @@ public class CelebritiesController {
 
     @Operation(summary = "Agregar una nueva celebridad", description = "Registra una nueva celebridad en la base de datos.")
     @PostMapping("/")
-    public Celebrity add(@RequestBody Celebrity celebrity) {
+    public Celebrity add(@Valid @RequestBody Celebrity celebrity) {
         this.serviceCelebrity.addCelebrity(celebrity);
         return celebrity;
     }

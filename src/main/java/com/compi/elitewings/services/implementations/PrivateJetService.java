@@ -47,4 +47,23 @@ public class PrivateJetService implements IServicePrivateJet {
     public Optional<PrivateJet> getPrivateJetByPilot(UUID pilotId) {
         return this.privateJetRepository.findByPilotId(pilotId);
     }
+    @Override
+    public void deletePrivateJet(UUID id) {
+        this.privateJetRepository.deleteById(id);
+    }
+
+    @Override
+    public void updatePrivateJet(UUID id, PrivateJet privateJet) {
+        Optional<PrivateJet> existingPrivateJetOptional = this.privateJetRepository.findById(id);
+
+        if (existingPrivateJetOptional.isPresent()) {
+            PrivateJet existingPrivateJet = existingPrivateJetOptional.get();
+            existingPrivateJet.setCapacity(privateJet.getCapacity());
+            existingPrivateJet.setModel(privateJet.getModel());
+            existingPrivateJet.setPilotId(privateJet.getPilotId());
+            this.privateJetRepository.save(existingPrivateJet);
+        } else {
+            throw new RuntimeException("Private jet with ID " + id + " not found");
+        }
+    }
 }
