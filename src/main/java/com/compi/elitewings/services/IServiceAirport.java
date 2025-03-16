@@ -7,21 +7,21 @@ import java.util.Optional;
 import java.util.UUID;
 
 public interface IServiceAirport {
-    List<Airport> getAirport();
+    public List<Airport> getAirport();
 
-    void addAirport(Airport airport);
+    public void addAirport(Airport airport);
 
-     Optional<Airport> getAirportById(UUID id);
+    public Optional<Airport> getAirportById(UUID id);
 
-    Optional<Airport> getAirportByName(String name);
+    public Optional<Airport> getAirportByName(String name);
 
-    List<Airport> getAirportByCapacity(int capacity);
+    public  List<Airport> getAirportByCapacity(int capacity);
 
-     Optional<Airport> getAirportByOwners(String owners);
+    public Optional<Airport> getAirportByOwners(String owners);
 
-     List<Airport> getAirportByLocation(String location);
+    public List<Airport> getAirportByLocation(String location);
 
-    void deleteAirport(UUID id);
+    public void deleteAirport(UUID id);
 
-    void updateAirport(UUID id, Airport airport);
+    public void updateAirport(UUID id, Airport airport);
 }

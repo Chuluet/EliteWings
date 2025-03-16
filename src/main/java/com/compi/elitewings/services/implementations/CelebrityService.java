@@ -72,7 +72,7 @@ public class CelebrityService implements IServiceCelebrity {
             existingCelebrity.setSuspiciousActivity(celebrity.isSuspiciousActivity());
             this.celebrityRepository.save(existingCelebrity);
         } else {
-            throw new RuntimeException("Airport with ID " + id + " not found");
+            throw new RuntimeException("Celebrity with ID " + id + " not found");
         }
     }
 }

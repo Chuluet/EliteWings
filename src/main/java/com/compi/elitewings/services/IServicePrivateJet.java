@@ -21,4 +21,7 @@ public interface IServicePrivateJet {
 
     public Optional<PrivateJet> getPrivateJetByPilot(UUID pilotId);
 
+    public void deletePrivateJet(UUID id);
+
+    public void updatePrivateJet(UUID id, PrivateJet privateJet);
 }

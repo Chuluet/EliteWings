@@ -18,7 +18,7 @@ import java.util.UUID;
 public class SecurityReport {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    @JsonProperty("id")
+    @JsonProperty(access = JsonProperty.Access.READ_ONLY)
     private UUID id;
     private UUID flightId;
     private String reportedBy;

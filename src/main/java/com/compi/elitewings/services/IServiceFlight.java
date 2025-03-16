@@ -17,4 +17,6 @@ public interface IServiceFlight {
     public List<Flight> getFlightByArrivalAirports(String arrivalAirport);
     public List<Flight> getFlightByDepartureTime(Timestamp departureTime);
     public List<Flight> getFlightByArrivalTime(Timestamp arrivalTime);
+    public void deleteFlight(UUID id);
+    public void updateFlight(UUID id, Flight flight);
 }

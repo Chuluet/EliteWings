@@ -68,7 +68,7 @@ public class SecurityReportService implements IServiceSecurityReport {
             existingSecurityReport.setFlightId(securityReport.getFlightId());
             this.securityReportRepository.save(existingSecurityReport);
         } else {
-            throw new RuntimeException("Airport with ID " + id + " not found");
+            throw new RuntimeException("SecurityReport with ID " + id + " not found");
         }
     }
 }

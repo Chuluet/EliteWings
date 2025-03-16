@@ -62,4 +62,29 @@ public class FlightService implements IServiceFlight {
     public List<Flight> getFlightByArrivalTime(Timestamp arrivalTime) {
         return getFlightByArrivalTime(arrivalTime);
     }
+
+    @Override
+    public void deleteFlight(UUID id) {
+        this.flightRepository.deleteById(id);
+    }
+
+    @Override
+    public void updateFlight(UUID id, Flight flight) {
+        Optional<Flight> existingFlightOptional = this.flightRepository.findById(id);
+
+        if (existingFlightOptional.isPresent()) {
+            Flight existingFlight = existingFlightOptional.get();
+            existingFlight.setCelebrityId(flight.getCelebrityId());
+            existingFlight.setJetId(flight.getJetId());
+            existingFlight.setDepartureAirPort(flight.getDepartureAirPort());
+            existingFlight.setArrivalAirPort(flight.getArrivalAirPort());
+            existingFlight.setDepartureTime(flight.getDepartureTime());
+            existingFlight.setArrivalTime(flight.getArrivalTime());
+            existingFlight.setPurpose(flight.getPurpose());
+            this.flightRepository.save(existingFlight);
+        } else {
+            throw new RuntimeException("Flight with ID " + id + " not found");
+        }
+    }
+
 }
