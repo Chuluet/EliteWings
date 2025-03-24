@@ -15,7 +15,7 @@ public interface IAirportRepository extends JpaRepository<Airport, UUID> {
 
     Optional<Airport> findByName(String name);
 
-    Optional<Airport> findByOwners(String owners);
+    List<Airport> findByOwners(String owners);
 
     List<Airport> findByCapacity(int capacity);
 

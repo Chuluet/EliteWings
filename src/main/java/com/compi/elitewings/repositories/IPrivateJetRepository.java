@@ -12,10 +12,10 @@ import java.util.UUID;
 
 public interface IPrivateJetRepository extends JpaRepository<PrivateJet, UUID> {
 
-    Optional<PrivateJet> findByPilotId(UUID jet_Id);
+    List<PrivateJet> findByOwnerId(UUID ownerId);
 
     List<PrivateJet> findByModel(String model);
 
-    List<PrivateJet> findByCapacity(int capacity);
+    List<PrivateJet> findByCapacity(Integer capacity);
 
 }

@@ -34,33 +34,39 @@ public class FlightService implements IServiceFlight {
     }
 
     @Override
-    public Optional<Flight> getFlightByCelebrityId(UUID celebrityId) {
-        return this.getFlightByCelebrityId(celebrityId);
+    public List<Flight> getFlightByCelebrityId(UUID celebrityId) {
+        return this.flightRepository.findByCelebrityId(celebrityId);
     }
 
     @Override
-    public Optional<Flight> getFlightByPrivateJetId(UUID privateJetId) {
-        return this.getFlightByPrivateJetId(privateJetId);
+    public List<Flight> getFlightByPrivateJetId(UUID privateJetId) {
+        return this.flightRepository.findByJetId(privateJetId);
     }
 
     @Override
     public List<Flight> getFlightByDepartureAirports(String departureAirport) {
-        return getFlightByDepartureAirports(departureAirport);
+        return this.flightRepository.findByDepartureAirPort(departureAirport);
     }
 
     @Override
     public List<Flight> getFlightByArrivalAirports(String arrivalAirport) {
-        return getFlightByArrivalAirports(arrivalAirport);
+        return this.flightRepository.findByArrivalAirPort(arrivalAirport);
     }
 
     @Override
     public List<Flight> getFlightByDepartureTime(Timestamp departureTime) {
-        return getFlightByDepartureTime(departureTime);
+        return this.flightRepository.findByDepartureTime(departureTime);
     }
 
     @Override
     public List<Flight> getFlightByArrivalTime(Timestamp arrivalTime) {
-        return getFlightByArrivalTime(arrivalTime);
+
+        return this.flightRepository.findByArrivalTime(arrivalTime);
+    }
+
+    @Override
+    public List<Flight> getFlightByPurpose(String purpose) {
+        return this.flightRepository.findByPurpose(purpose);
     }
 
     @Override
