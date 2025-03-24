@@ -39,13 +39,13 @@ public class PrivateJetService implements IServicePrivateJet {
     }
 
     @Override
-    public List<PrivateJet> getPrivateJetByCapacity(int capacity) {
+    public List<PrivateJet> getPrivateJetByCapacity(Integer capacity) {
         return this.privateJetRepository.findByCapacity(capacity);
     }
 
     @Override
-    public Optional<PrivateJet> getPrivateJetByPilot(UUID pilotId) {
-        return this.privateJetRepository.findByPilotId(pilotId);
+    public List<PrivateJet> getPrivateJetByOwner(UUID ownerId) {
+        return this.privateJetRepository.findByOwnerId(ownerId);
     }
     @Override
     public void deletePrivateJet(UUID id) {
@@ -60,7 +60,7 @@ public class PrivateJetService implements IServicePrivateJet {
             PrivateJet existingPrivateJet = existingPrivateJetOptional.get();
             existingPrivateJet.setCapacity(privateJet.getCapacity());
             existingPrivateJet.setModel(privateJet.getModel());
-            existingPrivateJet.setPilotId(privateJet.getPilotId());
+            existingPrivateJet.setOwnerId(privateJet.getOwnerId());
             this.privateJetRepository.save(existingPrivateJet);
         } else {
             throw new RuntimeException("Private jet with ID " + id + " not found");

@@ -2,6 +2,7 @@ package com.compi.elitewings.models;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.persistence.*;
+import jakarta.validation.constraints.NotBlank;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -21,7 +22,10 @@ public class SecurityReport {
     @JsonProperty(access = JsonProperty.Access.READ_ONLY)
     private UUID id;
     private UUID flightId;
+    @NotBlank(message = "asegurese que reportedBy no sea null o vacio")
     private String reportedBy;
+    @NotBlank(message = "asegurese que la descripcion no sea null o vacia")
     private String description;
-    private boolean isResolved;
+    @Column(columnDefinition = "BOOLEAN DEFAULT FALSE")
+    private boolean isResolved = false;
 }

@@ -11,12 +11,13 @@ public interface IServiceFlight {
     public List<Flight> getFlights();
     public void addFlight(Flight flight);
     public Optional<Flight> getFlightById(UUID id);
-    public Optional<Flight> getFlightByCelebrityId(UUID celebrityId);
-    public Optional<Flight> getFlightByPrivateJetId(UUID privateJetId);
+    public List<Flight> getFlightByCelebrityId(UUID celebrityId);
+    public List<Flight> getFlightByPrivateJetId(UUID privateJetId);
     public List<Flight> getFlightByDepartureAirports(String departureAirport);
     public List<Flight> getFlightByArrivalAirports(String arrivalAirport);
     public List<Flight> getFlightByDepartureTime(Timestamp departureTime);
     public List<Flight> getFlightByArrivalTime(Timestamp arrivalTime);
+    public List<Flight> getFlightByPurpose(String purpose);
     public void deleteFlight(UUID id);
     public void updateFlight(UUID id, Flight flight);
 }

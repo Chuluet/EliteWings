@@ -17,9 +17,9 @@ public interface IServicePrivateJet {
 
     public List<PrivateJet> getPrivateJetByModel(String model);
 
-    public List<PrivateJet> getPrivateJetByCapacity(int capacity);
+    public List<PrivateJet> getPrivateJetByCapacity(Integer capacity);
 
-    public Optional<PrivateJet> getPrivateJetByPilot(UUID pilotId);
+    public List<PrivateJet> getPrivateJetByOwner(UUID ownerId);
 
     public void deletePrivateJet(UUID id);
 

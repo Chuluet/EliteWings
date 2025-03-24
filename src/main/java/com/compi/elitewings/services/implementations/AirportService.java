@@ -45,7 +45,7 @@ public class AirportService implements IServiceAirport {
     }
 
     @Override
-    public Optional<Airport> getAirportByOwners(String owners) {
+    public List<Airport> getAirportByOwners(String owners) {
         return this.airportRepository.findByOwners(owners);
     }
 
